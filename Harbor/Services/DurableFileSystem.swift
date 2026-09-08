@@ -159,9 +159,14 @@ enum DurableFileSystem {
         let handle = try FileHandle(forReadingFrom: url)
         defer { try? handle.close() }
         var hasher = SHA256()
-        while let data = try handle.read(upToCount: 1024 * 1024), data.isEmpty == false {
+        // Foundation's autoreleased read buffers must be released per chunk,
+        // not at the end of a potentially multi-gigabyte integrity pass.
+        while try autoreleasepool(invoking: {
+            guard let data = try handle.read(upToCount: 1024 * 1024),
+                  data.isEmpty == false else { return false }
             hasher.update(data: data)
-        }
+            return true
+        }) {}
         return hasher.finalize().map { String(format: "%02x", $0) }.joined()
     }
 
