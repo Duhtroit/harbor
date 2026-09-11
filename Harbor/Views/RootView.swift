@@ -84,6 +84,7 @@ struct RootView: View {
         }
         .accessibilityIdentifier(HarborAccessibility.root)
         .focusedSceneValue(\.focusDownloadSearch, focusSearch)
+        .focusedSceneValue(\.sidebarVisibility, $sidebarColumns)
         .sheet(item: $center.addSheetDraft, onDismiss: {
             center.handleAddSheetDismissal()
         }) { draft in
