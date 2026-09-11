@@ -4,9 +4,18 @@ struct DownloadCommands: Commands {
     let center: DownloadCenter
     let updater: AppUpdater
     @FocusedValue(\.focusDownloadSearch) private var focusDownloadSearch
+    @FocusedBinding(\.sidebarVisibility) private var sidebarVisibility
 
     var body: some Commands {
-        SidebarCommands()
+        CommandGroup(replacing: .sidebar) {
+            Button(sidebarVisibility == .detailOnly ? "Show Sidebar" : "Hide Sidebar", systemImage: "sidebar.left") {
+                withAnimation {
+                    sidebarVisibility = sidebarVisibility == .detailOnly ? .all : .detailOnly
+                }
+            }
+            .keyboardShortcut("b")
+            .disabled(sidebarVisibility == nil)
+        }
 
         CommandGroup(after: .appInfo) {
             CheckForUpdatesCommandView(updater: updater)
@@ -109,7 +118,16 @@ struct FocusDownloadSearchKey: FocusedValueKey {
     typealias Value = () -> Void
 }
 
+struct SidebarVisibilityKey: FocusedValueKey {
+    typealias Value = Binding<NavigationSplitViewVisibility>
+}
+
 extension FocusedValues {
+    var sidebarVisibility: Binding<NavigationSplitViewVisibility>? {
+        get { self[SidebarVisibilityKey.self] }
+        set { self[SidebarVisibilityKey.self] = newValue }
+    }
+
     var focusDownloadSearch: (() -> Void)? {
         get { self[FocusDownloadSearchKey.self] }
         set { self[FocusDownloadSearchKey.self] = newValue }
