@@ -35,11 +35,12 @@ struct HarborApp: App {
                     }
 
                     center.installExternalOpenHandlerIfNeeded()
+                    appDelegate.dockProgress.start(center: center)
                     await center.initializeIfNeeded()
                 }
         }
         .handlesExternalEvents(matching: ["*"])
-        .defaultSize(width: 1_320, height: 820)
+        .defaultSize(width: 1_040, height: 680)
         .defaultPosition(.center)
         .windowToolbarStyle(.unified)
         .windowResizability(.contentMinSize)
