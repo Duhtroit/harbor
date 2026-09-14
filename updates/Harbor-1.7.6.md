@@ -1,0 +1,4 @@
+- Shows transfer ETAs and live aggregate download progress in the Dock.
+- Removes hidden torrent metadata and empty torrent folders when their downloads are moved to Trash.
+- Uses the current Harbor window size as the default for new installations.
+- Downloads smaller incremental app updates through Sparkle when available.

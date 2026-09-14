@@ -3,12 +3,25 @@
     <channel>
         <title>Harbor</title>
         <item>
+            <title>1.7.6</title>
+            <pubDate>Mon, 14 Sep 2026 19:02:51 +0500</pubDate>
+            <sparkle:version>35</sparkle:version>
+            <sparkle:shortVersionString>1.7.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.6</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink>https://thsnkhn.github.io/harbor/updates/Harbor-1.7.6.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.6/Harbor-1.7.6.dmg" length="271231568" type="application/octet-stream" sparkle:edSignature="7Eosf4MxcYZ7QIg/gJB+mi9+AklbgrSyA2d0QVk+MDQEJS/KKPYgzpSXfjuo+Rf6TjPDf4Po9DqJRtJ+EwFYDg=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.6/Harbor35-34.delta" sparkle:deltaFrom="34" length="560446" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="a0DPQrq1EppIuQXgxP8yX5QLiCxlLKPMF1M1QpotUlUwXlTzBTbccjK0MVwM5tRG8FblMuZ5RiTZG239OEVoBw=="/>
+                <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.6/Harbor35-33.delta" sparkle:deltaFrom="33" length="3117286" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="4Q8uq8g099sC3G3v2BJOl3AxZo7UELqMP/L/NiUum4bD5PODs4Ozs8VjW5l5CJvKbuW++sf/vfTP5Lyq2C0FAQ=="/>
+                <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.6/Harbor35-32.delta" sparkle:deltaFrom="32" length="3128546" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="FhjxrL0tWtXQhdCw6cQZfjLN1q5o3FMdQhyPd7QfQaa6h7BJ3MBR9t+FWKtHITQhpWzRRo8aCN6ZjhBRdXagDg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.7.5</title>
             <pubDate>Fri, 11 Sep 2026 19:17:38 +0500</pubDate>
             <sparkle:version>34</sparkle:version>
             <sparkle:shortVersionString>1.7.5</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.6</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink>https://thsnkhn.github.io/harbor/updates/Harbor-1.7.5.md</sparkle:releaseNotesLink>
             <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.5/Harbor-1.7.5.dmg" length="271199352" type="application/octet-stream" sparkle:edSignature="d7lxMtC+sxwALLmmz/e3qpLMJHs6URCYbQS4V/BC7nt7fx5EfY97VWZjVwUq8blBx43PyNuwJd45XTZPKir7DQ=="/>
         </item>
         <item>
@@ -17,7 +30,6 @@
             <sparkle:version>33</sparkle:version>
             <sparkle:shortVersionString>1.7.4</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.6</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink>https://thsnkhn.github.io/harbor/updates/Harbor-1.7.4.md</sparkle:releaseNotesLink>
             <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.4/Harbor-1.7.4.dmg" length="271799921" type="application/octet-stream" sparkle:edSignature="H9+vo6Uf2Ld2ihvihFHYttHSwOl+iIBSi9QojD2aZjpPHnlvpDOF6v2Lm/fcnwFtwORsb8ws4ZUpJWyKJTtlBA=="/>
         </item>
         <item>
@@ -26,7 +38,6 @@
             <sparkle:version>32</sparkle:version>
             <sparkle:shortVersionString>1.7.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.6</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink>https://thsnkhn.github.io/harbor/updates/Harbor-1.7.3.md</sparkle:releaseNotesLink>
             <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.3/Harbor-1.7.3.dmg" length="270853001" type="application/octet-stream" sparkle:edSignature="l339lYRv1PkMx+IV4x/UX50RE8jTr36z7aKowGmgMpkmy7zUDefChp46YkNxdU4i4Rlh3NtY6hwUc/63V/edDQ=="/>
         </item>
     </channel>
