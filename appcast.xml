@@ -3,12 +3,25 @@
     <channel>
         <title>Harbor</title>
         <item>
+            <title>1.7.8</title>
+            <pubDate>Fri, 18 Sep 2026 15:52:06 +0500</pubDate>
+            <sparkle:version>37</sparkle:version>
+            <sparkle:shortVersionString>1.7.8</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.6</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink>https://thsnkhn.github.io/harbor/updates/Harbor-1.7.8.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.8/Harbor-1.7.8.dmg" length="224612423" type="application/octet-stream" sparkle:edSignature="jXYDGhVrVIb0FVeNO0Sa7uTrdoSQufR3MvQSSBNXY1MYZfpY9FtvIRImNru59JOajqTjXctGm6p1FbySfLUZCA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.8/Harbor37-36.delta" sparkle:deltaFrom="36" length="48449650" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="5OZ8uPaT+p9kRMGzeSJ48hQTW+bv/Vbk+6D1MIvnJZuHM2iyANujTN8ubt75wVe5TjMVMH3rg1cxX1a+wL+XAg=="/>
+                <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.8/Harbor37-35.delta" sparkle:deltaFrom="35" length="48448318" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="moehsbeIB6/up9wsQqOFtZoMT0w0ll+k193itBLtZOVfr+USQvBnv8tVaFnrhhhMSaNPoZcdWUX1iUhq+4tXCA=="/>
+                <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.8/Harbor37-34.delta" sparkle:deltaFrom="34" length="48480174" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="GeIrNntj/Cx6B6xXlqjQBxg9YfUe9qEJRcdNMRpRs9jPPq4E3MBcU2A3TNiz3yYCdVsZGaa4jhEdMwew2PE6CA=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.7.7</title>
             <pubDate>Mon, 14 Sep 2026 21:26:32 +0500</pubDate>
             <sparkle:version>36</sparkle:version>
             <sparkle:shortVersionString>1.7.7</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.6</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink>https://thsnkhn.github.io/harbor/updates/Harbor-1.7.7.md</sparkle:releaseNotesLink>
             <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.7/Harbor-1.7.7.dmg" length="272562616" type="application/octet-stream" sparkle:edSignature="00zHqZgtPB7hHOqVsbfh1nXfbarZsmLAtvwrcwzzTHRCztl5yJa72dxHjbvzMGy+lNIb0epQ8xehLHWZHcE3BA=="/>
             <sparkle:deltas>
                 <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.7/Harbor36-35.delta" sparkle:deltaFrom="35" length="52492838" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="LfsQBa9LUSvCUCHbvD+0V18QD/w+z80zh7hcW/lqg0rA5LudxHm6scxCgZP5CBo2RkHfLQBsu09+M/4S9QZ0Cg=="/>
@@ -36,14 +49,6 @@
             <sparkle:shortVersionString>1.7.5</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.6</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.5/Harbor-1.7.5.dmg" length="271199352" type="application/octet-stream" sparkle:edSignature="d7lxMtC+sxwALLmmz/e3qpLMJHs6URCYbQS4V/BC7nt7fx5EfY97VWZjVwUq8blBx43PyNuwJd45XTZPKir7DQ=="/>
-        </item>
-        <item>
-            <title>1.7.4</title>
-            <pubDate>Mon, 07 Sep 2026 19:44:10 +0500</pubDate>
-            <sparkle:version>33</sparkle:version>
-            <sparkle:shortVersionString>1.7.4</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.6</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/thsnkhn/harbor/releases/download/v1.7.4/Harbor-1.7.4.dmg" length="271799921" type="application/octet-stream" sparkle:edSignature="H9+vo6Uf2Ld2ihvihFHYttHSwOl+iIBSi9QojD2aZjpPHnlvpDOF6v2Lm/fcnwFtwORsb8ws4ZUpJWyKJTtlBA=="/>
         </item>
     </channel>
 </rss>
