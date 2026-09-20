@@ -1,5 +1,6 @@
 import AppKit
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct ImportPartialDownloadSheet: View {
     let destinationFolder: URL
