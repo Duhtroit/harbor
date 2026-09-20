@@ -83,7 +83,14 @@ enum PartialDownloadImportService {
         let data: Data
         let response: HTTPURLResponse
         do {
-            (data, response) = try await session.data(for: request)
+            let result = try await session.data(for: request)
+            guard let httpResponse = result.1 as? HTTPURLResponse else {
+                throw PartialDownloadImportError.sourceUnavailable
+            }
+            data = result.0
+            response = httpResponse
+        } catch let error as PartialDownloadImportError {
+            throw error
         } catch {
             throw PartialDownloadImportError.sourceUnavailable
         }
