@@ -565,6 +565,29 @@ final class DownloadCoordinator: NSObject, @unchecked Sendable {
         )
     }
 
+    func importPartialFile(
+        from fileURL: URL,
+        id: UUID,
+        sourceURL: URL,
+        expectedBytes: Int64,
+        entityTag: String?,
+        lastModified: String?,
+        suggestedFilename: String?
+    ) throws -> Int64 {
+        try recoveryStore.importPartialFile(
+            from: fileURL,
+            id: id,
+            metadata: DirectDownloadRecoveryMetadata(
+                sourceURL: sourceURL,
+                entityTag: entityTag,
+                lastModified: lastModified,
+                expectedBytes: expectedBytes,
+                suggestedFilename: suggestedFilename,
+                mimeType: nil
+            )
+        )
+    }
+
     private func takeContext(forDownloadID id: UUID, suppressCompletion: Bool) -> TaskContext? {
         stateLock.withLock {
             guard let taskKey = taskKeysByDownloadID.removeValue(forKey: id),

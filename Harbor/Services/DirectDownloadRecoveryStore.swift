@@ -235,6 +235,38 @@ final class DirectDownloadRecoveryStore: @unchecked Sendable {
         }
     }
 
+    func importPartialFile(
+        from sourceURL: URL,
+        id: UUID,
+        metadata: DirectDownloadRecoveryMetadata
+    ) throws -> Int64 {
+        try lock.withLock {
+            let sourceValues = try sourceURL.resourceValues(forKeys: [.fileSizeKey, .isRegularFileKey, .isSymbolicLinkKey])
+            guard sourceValues.isRegularFile == true,
+                  sourceValues.isSymbolicLink != true,
+                  let sourceSize = sourceValues.fileSize,
+                  sourceSize > 0,
+                  Int64(sourceSize) < metadata.expectedBytes else {
+                throw CocoaError(.fileReadCorruptFile)
+            }
+            try DurableFileSystem.createDirectoryIfNeeded(at: directoryURL, fileManager: fileManager)
+            let destination = partialURL(for: id)
+            try removeItemIfPresent(at: destination)
+            try fileManager.copyItem(at: sourceURL, to: destination)
+            let copiedValues = try destination.resourceValues(forKeys: [.fileSizeKey])
+            let finalSourceValues = try sourceURL.resourceValues(forKeys: [.fileSizeKey])
+            guard copiedValues.fileSize == sourceSize,
+                  finalSourceValues.fileSize == sourceSize else {
+                try? removeItemIfPresent(at: destination)
+                throw CocoaError(.fileReadCorruptFile)
+            }
+            try saveMetadataLocked(metadata, id: id)
+            try DurableFileSystem.synchronizeFile(at: destination)
+            try DurableFileSystem.synchronizeParentDirectory(of: destination)
+            return Int64(sourceSize)
+        }
+    }
+
     func openFreshFile(id: UUID) throws -> FileHandle {
         try lock.withLock {
             try DurableFileSystem.createDirectoryIfNeeded(

@@ -184,6 +184,7 @@ final class DownloadCenter {
     }
     var sortOrder = [KeyPathComparator(\DownloadItem.createdAt, order: .reverse)]
     var addSheetDraft: AddDownloadSheetDraft?
+    var isPartialImportSheetPresented = false
     var activeBrowserSession: BrowserDownloadSession?
     var activeAlert: UserAlert?
     private(set) var initializationFailureMessage: String?
@@ -2092,6 +2093,53 @@ final class DownloadCenter {
         }
 
         addSheetDraft = makeBlankAddSheetDraft()
+    }
+
+    func presentPartialImportSheet() {
+        guard canAddDownloads else { return }
+        isPartialImportSheetPresented = true
+    }
+
+    func importPartialDownload(from partialURL: URL, sourceURL: URL) async throws {
+        guard canAddDownloads else { return }
+        let filename = partialURL.deletingPathExtension().lastPathComponent
+        let probe = try await PartialDownloadImportService.probe(sourceURL: sourceURL)
+        let request = AddDownloadRequest(
+            sourceKind: .directURL,
+            sourceURL: sourceURL,
+            customFilename: filename.isEmpty ? nil : filename,
+            destinationFolder: settings.defaultDestinationURL,
+            shouldStartImmediately: false
+        )
+        let item = insertDownload(request)
+        do {
+            let bytes = try coordinator.importPartialFile(
+                from: partialURL,
+                id: item.id,
+                sourceURL: sourceURL,
+                expectedBytes: probe.expectedBytes,
+                entityTag: probe.entityTag,
+                lastModified: probe.lastModified,
+                suggestedFilename: filename
+            )
+            item.bytesWritten = bytes
+            item.expectedBytes = probe.expectedBytes
+            item.progress = Double(bytes) / Double(probe.expectedBytes)
+            item.status = .paused
+            item.lastError = nil
+            item.updatedAt = .now
+            try await saveRecordsNow()
+        } catch {
+            coordinator.discardOwnedRecoveryData(id: item.id)
+            removeDownloadFromListAfterFailedImport(id: item.id)
+            throw error
+        }
+    }
+
+    private func removeDownloadFromListAfterFailedImport(id: UUID) {
+        downloads.removeAll { $0.id == id }
+        if selectedDownloadID == id { selectDownload(downloads.first?.id) }
+        schedulePersist()
     }
 
     func handleAddSheetDismissal() {

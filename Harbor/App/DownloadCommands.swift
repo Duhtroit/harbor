@@ -29,6 +29,11 @@ struct DownloadCommands: Commands {
             .keyboardShortcut("n")
             .disabled(center.canAddDownloads == false)
 
+            Button("Import Partial Download…") {
+                center.presentPartialImportSheet()
+            }
+            .disabled(center.canAddDownloads == false)
+
             Button("Add from Clipboard") {
                 center.addDownloadSourcesFromPasteboard()
             }

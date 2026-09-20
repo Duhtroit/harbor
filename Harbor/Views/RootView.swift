@@ -105,6 +105,11 @@ struct RootView: View {
                 center.queueDownloads(requests)
             }
         }
+        .sheet(isPresented: $center.isPartialImportSheetPresented) {
+            ImportPartialDownloadSheet(destinationFolder: settings.defaultDestinationURL) { partialURL, sourceURL in
+                try await center.importPartialDownload(from: partialURL, sourceURL: sourceURL)
+            }
+        }
         .sheet(
             isPresented: Binding(
                 get: { center.activeBrowserSession != nil },
